@@ -9,7 +9,7 @@ import {
 import {defaultGlobals, defaultHeaders} from './../defaults';
 
 export class HttpError extends Error {
-  constructor(statusCode = 500, {body, message = 'HttpError'}) {
+  constructor(statusCode = 500, {body, headers, message = 'HttpError'}) {
     super(message);
     this.name = this.constructor.name;
     this.message = message;
@@ -22,6 +22,7 @@ export class HttpError extends Error {
     this.statusCode = statusCode;
     this.status = statusCode;
     this.body = body;
+    this.headers = headers;
   }
 }
 
